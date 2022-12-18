@@ -10,6 +10,10 @@ import { BindingDemoComponent } from './binding-demo/binding-demo.component';
 import { FormsModule } from '@angular/forms';
 import { ColorListComponent } from './color-list/color-list.component';
 import { ColorItemComponent } from './color-list/color-item/color-item.component';
+import { StudentListComponent } from './student-list/student-list.component';
+import { TodoAnimationComponent } from './todo-animation/todo-animation.component';
+import { ParentComponent } from './life-cycle-hooks/parent/parent.component';
+import { ChildComponent } from './life-cycle-hooks/parent/child/child.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { ColorItemComponent } from './color-list/color-item/color-item.component
     LifecycleChildComponent,
     BindingDemoComponent,
     ColorListComponent,
-    ColorItemComponent
+    ColorItemComponent,
+    StudentListComponent,
+    TodoAnimationComponent,
+    ParentComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,
