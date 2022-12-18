@@ -5,6 +5,7 @@
     </div>
     <div *ngIf="toDoList" class="list-group" >
         <button 
+            @fade
             *ngFor="let todo of toDoList" 
             class="list-group-item text-left" 
             (click)="removeFromList(todo)">{{todo}}</button>

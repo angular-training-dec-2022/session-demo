@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { StudentListComponent } from './student-list/student-list.component';
 import { TodoAnimationComponent } from './todo-animation/todo-animation.component';
 import { ParentComponent } from './life-cycle-hooks/parent/parent.component';
 import { ChildComponent } from './life-cycle-hooks/parent/child/child.component';
+import { HoverHighlightDirective } from './custom-directives/hover-highlight.directive';
 
 @NgModule({
   declarations: [
@@ -27,12 +29,14 @@ import { ChildComponent } from './life-cycle-hooks/parent/child/child.component'
     StudentListComponent,
     TodoAnimationComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    HoverHighlightDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

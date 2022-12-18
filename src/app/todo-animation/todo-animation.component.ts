@@ -5,6 +5,18 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-todo-animation',
   templateUrl: './todo-animation.component.html',
   styleUrls: ['./todo-animation.component.css'],
+  animations: [
+    trigger('fade',[
+      transition('void=>*',[
+        style({backgroundColor: 'yellow', opacity: 0}),
+        animate(2000, style({backgroundColor: 'tranparent', opacity: 1}))
+      ]),
+      transition('*=>void',[
+        //style({backgroundColor: 'transparent', opacity: 1}),
+        animate(2000, style({backgroundColor: 'pink', opacity: 0}))
+      ])
+    ])
+  ]
 })
 export class TodoAnimationComponent implements OnInit {
 

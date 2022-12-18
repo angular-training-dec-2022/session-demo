@@ -19,10 +19,12 @@
             <tr 
                 appHoverHighlight
                 *ngFor="let student of allStudents">
+                <!-- [ngClass]="{'bg-danger': student.studentTotalMarks<250}" -->
+                
   
                 <td>{{ student.id }}</td>
                 <td>{{ student.studentName}}</td>
-                <td>{{ student.studentTotalMarks }}</td>
+                <td></td>
                 <td>{{ student.studentTotalMarks / 500 * 100 }}</td>
                 <td>{{ student.studentDOB }}</td>
                 <td>{{ student.studentGender }}</td>
