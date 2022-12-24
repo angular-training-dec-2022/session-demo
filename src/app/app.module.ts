@@ -16,6 +16,8 @@ import { TodoAnimationComponent } from './todo-animation/todo-animation.componen
 import { ParentComponent } from './life-cycle-hooks/parent/parent.component';
 import { ChildComponent } from './life-cycle-hooks/parent/child/child.component';
 import { HoverHighlightDirective } from './custom-directives/hover-highlight.directive';
+import { MypercentagePipe } from './custom-pipes/mypercentage.pipe';
+import { FilterListPipe } from './custom-pipes/filter-list.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { HoverHighlightDirective } from './custom-directives/hover-highlight.dir
     TodoAnimationComponent,
     ParentComponent,
     ChildComponent,
-    HoverHighlightDirective
+    HoverHighlightDirective,
+    MypercentagePipe,
+    FilterListPipe
   ],
   imports: [
     BrowserModule,

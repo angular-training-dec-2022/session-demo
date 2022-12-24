@@ -10,6 +10,7 @@ export class StudentListComponent implements OnInit {
 
   filterData: string = '';
 
+  
   allStudents: Student[] = [
     {
       id: 101,
@@ -41,6 +42,8 @@ export class StudentListComponent implements OnInit {
     }
   ];
 
+  filterStudents: Student[] =this.allStudents;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -54,6 +57,16 @@ export class StudentListComponent implements OnInit {
       studentDOB: new Date(3,5,1992),
       studentGender: 'Female'
   });
+  }
+
+  filterByGender(){
+    if(this.filterData == ''){
+      this.filterStudents = this.allStudents
+    }else{
+      this.filterStudents = this.allStudents.filter((eachStudent)=> eachStudent.studentGender.toLowerCase() == this.filterData.toLowerCase());
+    }
+      
+    
   }
 
 }
