@@ -19,6 +19,7 @@
                 <th>DOB</th>
                 <th>GENDER</th>
                 <th>RESULT</th>
+
             </tr>
         </thead>
         <tbody>
@@ -33,7 +34,7 @@
                 <!-- <td>{{ student.studentTotalMarks }}</td> -->
                 <td><input type="text" [(ngModel)]="student.studentTotalMarks"></td>
                 <!-- <td>{{ student.studentTotalMarks / 500 * 100 | number:'1.2'}}</td> -->
-                <!-- <td>{{ student.studentTotalMarks / 500 | percent}}</td> --> <!-- here persent is an in-built pipe-->
+                <!-- <td>{{ student.studentTotalMarks / 500 | percent}}</td> --> <!-- here percent is an in-built pipe-->
                 <td>{{ student.studentTotalMarks | custompercent: 2}}</td>
                 <td>{{ student.studentDOB | date: 'medium' | uppercase}}</td>
                 <td>{{ student.studentGender | lowercase }}</td>
