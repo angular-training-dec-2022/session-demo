@@ -20,11 +20,17 @@ export class StudentListHttpComponent implements OnInit {
   }
 
   loadStudents(){
+    // this.studentHttpService.fetchAllStudents().subscribe((response)=>{
+    //   this.allStudents = response;
+    //   this.filterStudents = this.allStudents;
+    //   this.deleteMessage = '';
+    // });
+
     this.studentHttpService.fetchAllStudents().subscribe((response)=>{
       this.allStudents = response;
       this.filterStudents = this.allStudents;
       this.deleteMessage = '';
-    });
+    }, (error)=>alert(error));
   }
 
   ngOnInit(): void {

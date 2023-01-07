@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { Student } from '../student-list-http/student';
 
 @Injectable({
@@ -17,7 +17,8 @@ export class StudentHttpService {
     // we have to inject HttpClient
     // this get request will return an Observable
 
-    return this.http.get<Student[]>(this.baseUrl);
+    // return this.http.get<Student[]>(this.baseUrl);
+    return this.http.get<Student[]>(this.baseUrl).pipe(catchError((error: HttpErrorResponse)=>throwError(()=>error.message)));
   }
 
   addStudent(student: Student): Observable<Student>{
@@ -30,5 +31,9 @@ export class StudentHttpService {
 
   deleteStudent(studentId: number): Observable<void>{
     return this.http.delete<void>(this.baseUrl+'/'+studentId);
+  }
+
+  errorHandler(error: HttpErrorResponse){
+    return throwError(()=>error.message);
   }
 }
