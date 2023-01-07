@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentHttpService } from '../services/student-http.service';
-import { Student } from './student';
+import { Router } from '@angular/router';
+import { StudentHttpService } from '../../services/student-http.service';
+import { Student } from '../student';
 
 @Component({
   selector: 'app-student-list-http',
@@ -15,7 +16,7 @@ export class StudentListHttpComponent implements OnInit {
   allStudents: Student[] = [];
   filterStudents: Student[] = [];
 
-  constructor(private studentHttpService: StudentHttpService) {
+  constructor(private studentHttpService: StudentHttpService, private router: Router) {
    
   }
 
@@ -68,8 +69,15 @@ export class StudentListHttpComponent implements OnInit {
     }else{
       this.filterStudents = this.allStudents.filter((eachStudent)=> eachStudent.studentGender.toLowerCase().includes(this.filterData.toLowerCase()));
     }
-      
-    
   }
 
+  viewStudent(student: Student){
+    // here we need to navigate to StudentViewComponent
+    // to navigate programtically we need the Router api
+    // inject Router api through constructor
+
+    this.router.navigate(['student-view', student.id]);
+
+    //here student.id is a route parameter
+  }
 }

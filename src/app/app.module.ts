@@ -20,11 +20,13 @@ import { HoverHighlightDirective } from './custom-directives/hover-highlight.dir
 import { MypercentagePipe } from './custom-pipes/mypercentage.pipe';
 import { FilterListPipe } from './custom-pipes/filter-list.pipe';
 import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
-import { StudentListHttpComponent } from './student-list-http/student-list-http.component';
+import { StudentListHttpComponent } from './student-http/student-list-http/student-list-http.component';
 import { WeatherComponent } from './weather/weather.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ErrorComponent } from './error/error.component';
+import { StudentViewComponent } from './student-http/student-view/student-view.component';
+import { LifecycleHeaderComponent } from './lifecycle-header/lifecycle-header.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { ErrorComponent } from './error/error.component';
     WeatherComponent,
     HeaderComponent,
     FooterComponent,
-    ErrorComponent
+    ErrorComponent,
+    StudentViewComponent,
+    LifecycleHeaderComponent
   ],
   imports: [
     BrowserModule,
