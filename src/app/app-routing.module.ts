@@ -10,6 +10,7 @@ import { StudentListHttpComponent } from './student-http/student-list-http/stude
 import { StudentViewComponent } from './student-http/student-view/student-view.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { TodoAnimationComponent } from './todo-animation/todo-animation.component';
+import { WeatherComponent } from './weather/weather.component';
 
 const routes: Routes = [
   {path: '', component: DisplayComponent},
@@ -21,9 +22,12 @@ const routes: Routes = [
   {path: 'student-http', component: StudentListHttpComponent},
   {path: 'student-view/:sId', component: StudentViewComponent}, // http://localhost:4900/student-view/101
   {path: 'lifecycle', component: LifecycleHeaderComponent, children: [
+    // {path:'', component: LifecycleParentComponent},
+    {path:'', redirectTo: 'demo1', pathMatch: 'full'},
     {path:'demo1', component: LifecycleParentComponent},
     {path:'demo2', component: ParentComponent},
   ]},
+  {path: 'weather', component: WeatherComponent},
   {path: '**', component: ErrorComponent },
 ];
 
