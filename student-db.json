@@ -13,6 +13,27 @@
       "studentTotalMarks": "450",
       "studentDOB": "1913-01-12T05:00:00.000Z",
       "studentGender": "Female"
+    },
+    {
+      "id": 107,
+      "studentName": "Ramya Raj",
+      "studentTotalMarks": "500",
+      "studentDOB": "2023-01-01T00:00:00.000Z",
+      "studentGender": "Female"
+    },
+    {
+      "id": 108,
+      "studentName": "Prakash Mohan",
+      "studentTotalMarks": "300",
+      "studentDOB": "2023-01-02T00:00:00.000Z",
+      "studentGender": "Male"
+    },
+    {
+      "id": 109,
+      "studentName": "Chitra Mohan",
+      "studentTotalMarks": "330",
+      "studentDOB": "2023-01-08T17:12:41.231Z",
+      "studentGender": "Male"
     }
   ]
 }

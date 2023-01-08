@@ -6,6 +6,8 @@ import { DisplayComponent } from './display/display.component';
 import { ErrorComponent } from './error/error.component';
 import { ParentComponent } from './life-cycle-hooks/parent/parent.component';
 import { LifecycleHeaderComponent } from './lifecycle-header/lifecycle-header.component';
+import { StudentAddComponent } from './student-http/student-add/student-add.component';
+import { StudentEditComponent } from './student-http/student-edit/student-edit.component';
 import { StudentListHttpComponent } from './student-http/student-list-http/student-list-http.component';
 import { StudentViewComponent } from './student-http/student-view/student-view.component';
 import { StudentListComponent } from './student-list/student-list.component';
@@ -20,6 +22,8 @@ const routes: Routes = [
   {path: 'todo', component: TodoAnimationComponent},
   {path: 'student', component: StudentListComponent},
   {path: 'student-http', component: StudentListHttpComponent},
+  {path: 'student-add', component: StudentAddComponent},
+  {path: 'student-edit/:studId', component: StudentEditComponent},
   {path: 'student-view/:sId', component: StudentViewComponent}, // http://localhost:4900/student-view/101
   {path: 'lifecycle', component: LifecycleHeaderComponent, children: [
     // {path:'', component: LifecycleParentComponent},

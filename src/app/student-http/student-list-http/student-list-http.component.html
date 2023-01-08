@@ -23,6 +23,7 @@
                 <th>EDIT</th>
                 <th>REMOVE</th>
                 <th>VIEW</th>
+                <th>GO TO EDIT</th>
             </tr>
         </thead>
         <tbody>
@@ -43,6 +44,7 @@
                 <td *ngIf="toggleEditId==student.id"><button type="button" class="btn btn-warning" (click)="editStudent(student)">Update</button></td>
                 <td><button type="button" class="btn btn-danger" (click)="removeStudent(student)">Remove</button></td>
                 <td><button type="button" class="btn btn-success" (click)="viewStudent(student)">View</button></td>
+                <td><button type="button" class="btn btn-primary" (click)="goToEditStudent(student.id)">Go To Edit</button></td>
             </tr>
         </tbody>
     </table>

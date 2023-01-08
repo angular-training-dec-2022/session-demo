@@ -1,0 +1,57 @@
+<div class="container">
+    <form (ngSubmit)="sendStudent(templateForm)" #templateForm="ngForm">
+        <div class="card">
+            <div class="card-title bg-success text-light">
+                <div class="m-2">ADD A STUDENT</div>
+            </div>
+            <div class="card-body">
+               
+            <div ngModelGroup="personalData">
+                <div class="form-group">
+                    <label for="studName"> Student Name:</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        placeholder="Enter Student Name" 
+                        id="studName"
+                        name="sName"
+                        ngModel>
+                </div>
+    
+                <div class="form-group">
+                    <label for="studMark"> Student Mark:</label>
+                    <select class="form-control" id="studMark" name="sMark" ngModel>
+                        <option *ngFor="let mark of allMarks" [value]="mark.value">{{ mark.value }}</option>
+                    </select>
+                </div>
+            </div>
+           
+            <div class="form-group">
+                <label for="studDOB"> Student DOB:</label>
+                <input type="date" class="form-control" id="studDOB" name="sDOB" ngModel>
+            </div>
+
+            Student Gender:
+            <div class="form-check-inline">
+                <span *ngFor="let gender of allGenders">
+                    <label class="form-check-label m-1">
+                        <input 
+                            type="radio" 
+                            class="form-check-input" 
+                            [value]="gender.value"
+                            name="sGender"
+                            ngModel>
+                        {{ gender.value }}
+                    </label>
+                </span>
+            </div>
+
+            </div>
+            <div class="card-footer bg-success">
+                <button type="button" class="btn btn-light text-success m-2" (click)="setDefaults(templateForm)">SET DEFAULTS</button>
+                <button type="submit" class="btn btn-light text-success m-2">ADD</button>
+                <button type="button" class="btn btn-light text-success m-2" (click)="resetData(templateForm)">RESET</button>
+            </div>
+        </div>
+    </form>
+</div>

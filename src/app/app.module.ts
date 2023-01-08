@@ -9,7 +9,7 @@ import { DisplayComponent } from './display/display.component';
 import { LifecycleParentComponent } from './angular-lifecycle/lifecycle-parent/lifecycle-parent.component';
 import { LifecycleChildComponent } from './angular-lifecycle/lifecycle-parent/lifecycle-child/lifecycle-child.component';
 import { BindingDemoComponent } from './binding-demo/binding-demo.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ColorListComponent } from './color-list/color-list.component';
 import { ColorItemComponent } from './color-list/color-item/color-item.component';
 import { StudentListComponent } from './student-list/student-list.component';
@@ -27,6 +27,8 @@ import { FooterComponent } from './footer/footer.component';
 import { ErrorComponent } from './error/error.component';
 import { StudentViewComponent } from './student-http/student-view/student-view.component';
 import { LifecycleHeaderComponent } from './lifecycle-header/lifecycle-header.component';
+import { StudentAddComponent } from './student-http/student-add/student-add.component';
+import { StudentEditComponent } from './student-http/student-edit/student-edit.component';
 
 @NgModule({
   declarations: [
@@ -51,14 +53,17 @@ import { LifecycleHeaderComponent } from './lifecycle-header/lifecycle-header.co
     FooterComponent,
     ErrorComponent,
     StudentViewComponent,
-    LifecycleHeaderComponent
+    LifecycleHeaderComponent,
+    StudentAddComponent,
+    StudentEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

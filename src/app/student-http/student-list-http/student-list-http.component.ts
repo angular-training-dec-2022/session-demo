@@ -39,7 +39,8 @@ export class StudentListHttpComponent implements OnInit {
   }
 
   addStudent(){
-    
+    // here we should navigate to student-add route path
+    this.router.navigate(['student-add']);
   }
 
   editStudent(student: Student){
@@ -79,5 +80,9 @@ export class StudentListHttpComponent implements OnInit {
     this.router.navigate(['student-view', student.id]);
 
     //here student.id is a route parameter
+  }
+
+  goToEditStudent(sId: number){
+    this.router.navigate(['student-edit', sId]);
   }
 }
