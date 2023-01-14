@@ -1,6 +1,6 @@
 <div class="container">
     <form (ngSubmit)="updateData()" [formGroup]="reactiveForm">
-        <div class="card">
+        <div class="card" [ngClass]="{'border border-success': status=='VALID', 'border border-danger': status=='INVALID'}">
             <div class="card-title bg-primary text-light">
                 <div class="m-2">EDIT A STUDENT</div>
             </div>
@@ -14,6 +14,17 @@
                         class="form-control"  
                         id="studName"
                         formControlName="rsName">
+                        <div *ngIf="reactiveForm.get('personalData.rsName')?.invalid">
+                            <div *ngIf="reactiveForm.get('personalData.rsName')?.errors?.['required']" class="text-danger small">
+                                Student Name is required!
+                            </div>
+                            <div *ngIf="reactiveForm.get('personalData.rsName')?.errors?.['minlength']" class="text-danger small">
+                                Student Name should be minimum 2 characters!
+                            </div>
+                            <div *ngIf="reactiveForm.get('personalData.rsName')?.errors?.['invalidText']" class="text-danger small">
+                                Student Name should only alphabets!
+                            </div>
+                        </div>
                 </div>
     
                 <div class="form-group">
@@ -48,6 +59,7 @@
 
             </div>
             <div class="card-footer bg-primary">
+                <button type="button" class="btn btn-light text-primary m-2" (click)="attachValidator()">ATTACH VALIDATOR</button>
                 <button type="submit" class="btn btn-light text-primary m-2">UPDATE</button>
                 <button type="button" class="btn btn-light text-primary m-2" (click)="resetData()">RESET</button>
             </div>

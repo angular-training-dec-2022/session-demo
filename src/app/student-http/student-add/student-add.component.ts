@@ -74,4 +74,8 @@ export class StudentAddComponent implements OnInit {
   resetData(form: NgForm){
     form.reset();
   }
+
+  logChange(studName: any){
+    console.log(studName);
+  }
 }

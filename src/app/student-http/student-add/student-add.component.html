@@ -15,20 +15,38 @@
                         placeholder="Enter Student Name" 
                         id="studName"
                         name="sName"
-                        ngModel>
+                        #studName="ngModel"
+                        (change)="logChange(studName)"
+                        ngModel
+                        required
+                        minlength="2"
+                        appOnlyText>
+                        <div class="text-danger small" *ngIf="!studName.valid && studName.touched">
+                            <div *ngIf="studName.errors?.['required']">
+                                Student Name is required!
+                            </div>
+                            <div *ngIf="studName.errors?.['minlength']">
+                                Student Name should be minimum 2 characters!
+                            </div>
+                            <div *ngIf="studName.errors?.['invalidText']">
+                                Student Name should contain only alphabets!
+                            </div>
+                        </div>
                 </div>
     
                 <div class="form-group">
                     <label for="studMark"> Student Mark:</label>
-                    <select class="form-control" id="studMark" name="sMark" ngModel>
+                    <select class="form-control" id="studMark" name="sMark" ngModel required #studMark="ngModel">
                         <option *ngFor="let mark of allMarks" [value]="mark.value">{{ mark.value }}</option>
                     </select>
+                    <div class="text-danger small" *ngIf="!studMark.valid && studMark.touched">Student Mark is required!</div>
                 </div>
             </div>
            
             <div class="form-group">
                 <label for="studDOB"> Student DOB:</label>
-                <input type="date" class="form-control" id="studDOB" name="sDOB" ngModel>
+                <input type="date" class="form-control" id="studDOB" name="sDOB" ngModel required #studDOB="ngModel">
+                <div class="text-danger small" *ngIf="!studDOB.valid && studDOB.touched">Student DOB is required!</div>
             </div>
 
             Student Gender:
@@ -40,7 +58,8 @@
                             class="form-check-input" 
                             [value]="gender.value"
                             name="sGender"
-                            ngModel>
+                            ngModel
+                            required>
                         {{ gender.value }}
                     </label>
                 </span>

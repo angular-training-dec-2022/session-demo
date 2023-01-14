@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StudentHttpService } from 'src/app/services/student-http.service';
 
@@ -10,17 +10,23 @@ import { StudentHttpService } from 'src/app/services/student-http.service';
 })
 export class StudentEditComponent implements OnInit {
 
+  status: string = '';
   reactiveForm: FormGroup = new FormGroup({
     rsId: new FormControl(null),
     // rsName: new FormControl(null),
     // rsMark: new FormControl(null),
     personalData: new FormGroup({
-      rsName: new FormControl(null),
-      rsMark: new FormControl(null),
+      // rsName: new FormControl(null, [Validators.required, Validators.minLength(2), this.invalidText]),
+      rsName: new FormControl(null, [Validators.required, Validators.minLength(2)]),
+      rsMark: new FormControl(null, Validators.required),
     }),
-    rsDOB: new FormControl(null),
-    rsGender: new FormControl(null)
-  });
+    rsDOB: new FormControl(null, Validators.required),
+    rsGender: new FormControl(null, Validators.required)
+  },
+  // {
+  //   updateOn: 'submit'
+  // }
+  );
 
   allMarks = [
     { id: 1, value: 100},
@@ -60,9 +66,21 @@ export class StudentEditComponent implements OnInit {
         })
       })
     }
-    
-  }
 
+    // this.reactiveForm.get('personalData.rsName')?.valueChanges.subscribe((value)=>{
+    //   console.log(value)
+    // })
+    // this.reactiveForm.get('personalData.rsName')?.statusChanges.subscribe((value)=>{
+    //   console.log(value)
+    // })
+    
+    this.reactiveForm.statusChanges.subscribe((value)=>{
+      console.log(value);
+      this.status = value;
+    })
+
+  }
+   
   resetData(){
     this.reactiveForm.reset();
   }
@@ -79,8 +97,23 @@ export class StudentEditComponent implements OnInit {
       studentGender: this.reactiveForm.value.rsGender
     }
 
-    this.studentHttpService.updateStudent(updateStudent).subscribe((response)=>{
-      this.router.navigate(["student-http"]);
-    })
+    // this.studentHttpService.updateStudent(updateStudent).subscribe((response)=>{
+    //   this.router.navigate(["student-http"]);
+    // })
+  }
+
+  // custom ValidatorFn
+  invalidText(control: FormControl){
+    if(control.value!=null && !/^[A-Za-z\s]*$/.test(control.value)){
+      return {invalidText: true}
+    }
+    return null;
+  }
+
+  attachValidator(){
+    // here i want to set the validators for a particular FormControl
+
+    this.reactiveForm.get('personalData.rsName')?.setValidators([Validators.required, Validators.minLength(2), this.invalidText]);
+    this.reactiveForm.get('personalData.rsName')?.updateValueAndValidity();
   }
 }
