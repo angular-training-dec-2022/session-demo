@@ -11,6 +11,20 @@ export class AuthService {
 
   constructor(private userService: UserService) { }
 
+  storeToken(token: string): void{
+    sessionStorage.setItem("jwtToken", token);
+  }
+
+  deleteToken(): void{
+    sessionStorage.removeItem("jwtToken")
+  }
+
+  retrieveToken(): string | null{
+    return sessionStorage.getItem("jwtToken");
+  }
+
+
+
   validateLogin(user: User): User[]{
     // let filterUsers: User[] = [];
     // this.userService.fetchAllUsers().subscribe((response)=>{

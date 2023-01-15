@@ -37,6 +37,11 @@ export class LoginComponent implements OnInit {
       if(filterUsers.length!=0){
         console.log("login success");
         this.authService.isLogged = true;
+
+        // take the jwt token from the response(filterUsers) and store it in sessionStorage
+        // accessing of sessionStorage will be done by AuthService
+        this.authService.storeToken(filterUsers[0].token);
+        
         this.router.navigate(['student-http']);
       }else{
         console.log("login failed")
