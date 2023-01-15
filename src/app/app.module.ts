@@ -30,6 +30,8 @@ import { LifecycleHeaderComponent } from './lifecycle-header/lifecycle-header.co
 import { StudentAddComponent } from './student-http/student-add/student-add.component';
 import { StudentEditComponent } from './student-http/student-edit/student-edit.component';
 import { OnlyTextDirective } from './custom-validator/only-text.directive';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { OnlyTextDirective } from './custom-validator/only-text.directive';
     LifecycleHeaderComponent,
     StudentAddComponent,
     StudentEditComponent,
-    OnlyTextDirective
+    OnlyTextDirective,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

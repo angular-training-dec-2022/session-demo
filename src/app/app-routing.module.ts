@@ -4,8 +4,11 @@ import { LifecycleParentComponent } from './angular-lifecycle/lifecycle-parent/l
 import { ColorListComponent } from './color-list/color-list.component';
 import { DisplayComponent } from './display/display.component';
 import { ErrorComponent } from './error/error.component';
+import { LoginGuard } from './guards/login.guard';
 import { ParentComponent } from './life-cycle-hooks/parent/parent.component';
 import { LifecycleHeaderComponent } from './lifecycle-header/lifecycle-header.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 import { StudentAddComponent } from './student-http/student-add/student-add.component';
 import { StudentEditComponent } from './student-http/student-edit/student-edit.component';
 import { StudentListHttpComponent } from './student-http/student-list-http/student-list-http.component';
@@ -20,8 +23,10 @@ const routes: Routes = [
   {path: 'display', component: DisplayComponent},
   {path: 'color', component: ColorListComponent},
   {path: 'todo', component: TodoAnimationComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'logout', component: LogoutComponent},
   {path: 'student', component: StudentListComponent},
-  {path: 'student-http', component: StudentListHttpComponent},
+  {path: 'student-http', component: StudentListHttpComponent, canActivate: [LoginGuard]},
   {path: 'student-add', component: StudentAddComponent},
   {path: 'student-edit/:studId', component: StudentEditComponent},
   {path: 'student-view/:sId', component: StudentViewComponent}, // http://localhost:4900/student-view/101
