@@ -13,7 +13,8 @@ Steps
 
 
 
-
+add this to nginx.conf files
+---------------------------
 server {
  listen 6565;
  server_name localhost;
